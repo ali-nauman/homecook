@@ -8,6 +8,10 @@ import products from '../Products';
 class HomeCook extends React.Component {
     products = products;
 
+    addToOrder() {
+        
+    }
+
     render() {
         return (
             <React.Fragment>
