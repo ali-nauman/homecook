@@ -1,74 +1,36 @@
 let foodItems = [
     {
-        name: "Biryani",
-        image: "/biryani.jpg",
+        id: 1,
+        name: "Biryani (Chicken)",
+        image: "Assets/Images/1.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0,
+        availableOnDay: 0
     },
     {
-        name: "Karahi",
-        image: "/karahi.jpg",
+        id: 2,
+        name: "Karahi (Chicken)",
+        image: "Assets/Images/2.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0,
+        availableOnDay: 0
     },
     {
-        name: "Daal",
-        image: "/daal.jpg",
+        id: 3,
+        name: "Handi (Chicken)",
+        image: "Assets/Images/3.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0,
+        availableOnDay: 0
     },
     {
-        name: "Gobi",
-        image: "/gobi.jpg",
+        id: 4,
+        name: "Jalfrezi (Chicken)",
+        image: "Assets/Images/4.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0,
+        availableOnDay: 0
     },
-    {
-        name: "Karahi",
-        image: "/karahi.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    },
-    {
-        name: "Daal",
-        image: "/daal.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    },
-    {
-        name: "Gobi",
-        image: "/gobi.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    },
-    {
-        name: "Karahi",
-        image: "/karahi.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    },
-    {
-        name: "Daal",
-        image: "/daal.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    },
-    {
-        name: "Gobi",
-        image: "/gobi.jpg",
-        price: 500,
-        serving: 2,
-        availableOnDay: 0,
-    }
 ];
 
 export default foodItems;

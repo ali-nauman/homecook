@@ -7,14 +7,17 @@ const FoodItem = (props) => {
     return (
         <>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.image}/>
+                <Card.Img variant="top" src={process.env.PUBLIC_URL + (props.image)}/>
                 <Card.Body>
                     <Card.Title>{props.name}</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                     </Card.Text>
-                    <Button variant="primary">Add to Order</Button>
+                        <div className="font-weight-bold">
+                            Rs. {props.price}
+                        </div>
+
+                        <div className="font-weight-bold d-inline">
+                            Serves: <div className="font-weight-normal d-inline">{props.serving}</div>
+                        </div>
+                    <Button className="d-block" variant="primary" onClick={() => props.onClick(props.id)}>Add to Order</Button>
                 </Card.Body>
             </Card>
         </>

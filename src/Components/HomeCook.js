@@ -10,6 +10,21 @@ import Order from './Order';
 import FoodItems from '../Data/FoodItems';
 
 class HomeCook extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            orderItems: []
+        }
+    }
+
+    addToOrder(id) {
+        let orderItems = this.state.orderItems;
+
+        orderItems.push()
+        console.log(`Product ID ${id} added to order!`);
+    }
+
     render() {
         return (
             <>
@@ -31,7 +46,7 @@ class HomeCook extends React.Component {
                         </Route>
 
                         <Route path="/">
-                            <Home foodItems={FoodItems}></Home>
+                            <Home foodItems={FoodItems} onClick={(id) => this.addToOrder(id)}></Home>
                         </Route>
                     </Switch>
                 </Router>
