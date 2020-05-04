@@ -1,25 +1,39 @@
 import React from 'react';
 
-import NavBar from './NavBar';
-import ProductGrid from './ProductGrid';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import products from '../Products';
+import Home from './Home';
+import Order from './Order';
 
-class HomeCook extends React.Component {
-    products = products;
-
-    addToOrder() {
-        
-    }
-
+export default class HomeCook extends React.Component {
     render() {
         return (
-            <React.Fragment>
-                <NavBar numItems="0"></NavBar>
-                <ProductGrid products={products}> </ProductGrid>
-            </React.Fragment>
-        )
+            <>
+                <Router>
+                    <Navbar bg="light" expand="lg">
+                        <Navbar.Brand>HomeCook</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="mr-auto">
+                                <Nav.Link href="/">Home</Nav.Link>
+                                <Nav.Link href="/order">Order</Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+
+                    <Switch>
+                        <Route path="/order">
+                            <Order></Order>
+                        </Route>
+
+                        <Route path="/">
+                            <Home></Home>
+                        </Route>
+                    </Switch>
+                </Router>
+            </>
+        );
     }
 }
-
-export default HomeCook;
