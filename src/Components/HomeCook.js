@@ -7,7 +7,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Home';
 import Order from './Order';
 
-export default class HomeCook extends React.Component {
+import FoodItems from '../Data/FoodItems';
+
+class HomeCook extends React.Component {
     render() {
         return (
             <>
@@ -29,7 +31,7 @@ export default class HomeCook extends React.Component {
                         </Route>
 
                         <Route path="/">
-                            <Home></Home>
+                            <Home foodItems={FoodItems}></Home>
                         </Route>
                     </Switch>
                 </Router>
@@ -37,3 +39,5 @@ export default class HomeCook extends React.Component {
         );
     }
 }
+
+export default HomeCook;

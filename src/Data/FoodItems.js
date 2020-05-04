@@ -1,74 +1,74 @@
-let products = [
+let foodItems = [
     {
         name: "Biryani",
-        picture: "/biryani.jpg",
+        image: "/biryani.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Karahi",
-        picture: "/karahi.jpg",
+        image: "/karahi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Daal",
-        picture: "/daal.jpg",
+        image: "/daal.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Gobi",
-        picture: "/gobi.jpg",
+        image: "/gobi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Karahi",
-        picture: "/karahi.jpg",
+        image: "/karahi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Daal",
-        picture: "/daal.jpg",
+        image: "/daal.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Gobi",
-        picture: "/gobi.jpg",
+        image: "/gobi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Karahi",
-        picture: "/karahi.jpg",
+        image: "/karahi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Daal",
-        picture: "/daal.jpg",
+        image: "/daal.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     },
     {
         name: "Gobi",
-        picture: "/gobi.jpg",
+        image: "/gobi.jpg",
         price: 500,
         serving: 2,
         availableOnDay: 0,
     }
 ];
 
-export default products;
+export default foodItems;
