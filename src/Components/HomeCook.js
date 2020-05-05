@@ -12,8 +12,10 @@ import FoodItems from '../Data/FoodItems';
 class HomeCook extends React.Component {
     constructor(props) {
         super(props)
+
         this.state = {
-            orderItems: []
+            orderItems: [],
+            foodItems: this.getAvailableItems()
         }
     }
 
@@ -34,6 +36,16 @@ class HomeCook extends React.Component {
         this.setState({
             orderItems: orderItems
         });
+    }
+
+    getAvailableItems() {
+        let menu = [];
+
+        FoodItems.forEach((item) => {
+            if (item.availableOnDay === new Date().getDay()) { menu.push(item); }
+        })
+
+        return menu;
     }
 
     render() {
@@ -57,7 +69,7 @@ class HomeCook extends React.Component {
                         </Route>
 
                         <Route path="/">
-                            <Home foodItems={FoodItems} onClick={(id) => this.addToOrder(id)}></Home>
+                            <Home foodItems={this.state.foodItems} onClick={(id) => this.addToOrder(id)}></Home>
                         </Route>
                     </Switch>
                 </Router>
