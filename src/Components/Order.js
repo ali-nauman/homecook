@@ -9,6 +9,17 @@ function getTotalCost(items) {
 }
 
 const Order = (props) => {
+    const title = <h3 className="mt-4">Order</h3>
+    const message = <p>Here you can view the details of your order</p>
+
+    if (props.orderItems.length === 0) {
+        return (
+            <>
+                {title}
+                <p>You have not added any items to your order yet! Go back to the homepage to add some items!</p>
+            </>)
+    }
+
     const orderItems = props.orderItems.map((item, i = 0) =>
         <tr>
             <td>{++i}</td>
@@ -20,11 +31,11 @@ const Order = (props) => {
             <td>Rs. {item.quantity * item.item.price}</td>
         </tr>
     );
-    
+
     return (
         <>
-            <h3 className="mt-4">Order</h3>
-            <p>Here you can view the details of your order</p>
+            {title}
+            {message}
 
             <Table striped bordered hover>
                 <thead>
