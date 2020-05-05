@@ -13,7 +13,7 @@ let foodItems = [
         image: "Assets/Images/2.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0
+        availableOnDay: 1
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ let foodItems = [
         image: "Assets/Images/3.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0
+        availableOnDay: 2
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ let foodItems = [
         image: "Assets/Images/4.jpg",
         price: 500,
         serving: 2,
-        availableOnDay: 0
+        availableOnDay: 3
     },
 ];
 

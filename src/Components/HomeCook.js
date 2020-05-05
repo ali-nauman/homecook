@@ -2,7 +2,7 @@ import React from 'react';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Home from './Home';
 import Order from './Order';
@@ -10,7 +10,6 @@ import Order from './Order';
 import FoodItems from '../Data/FoodItems';
 
 class HomeCook extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -18,31 +17,43 @@ class HomeCook extends React.Component {
         }
     }
 
-    addToOrder(id) {
+    addToOrder(item) {
         let orderItems = this.state.orderItems;
+        let desiredItem = orderItems.find(i => i.item.id === item.id);
 
-        orderItems.push()
-        console.log(`Product ID ${id} added to order!`);
+        if (desiredItem) {
+            ++desiredItem.quantity;
+        }
+        else {
+            orderItems.push({
+                item: item,
+                quantity: 1
+            })
+        }
+
+        this.setState({
+            orderItems: orderItems
+        });
     }
 
     render() {
         return (
             <>
                 <Router>
-                    <Navbar bg="light" expand="lg">
-                        <Navbar.Brand>HomeCook</Navbar.Brand>
+                    <Navbar bg="dark" expand="lg">
+                        <Navbar.Brand className="text-white mt-1">HomeCook</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
-                                <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="/order">Order</Nav.Link>
+                                <Link className="text-light mt-2 mx-2" to="/">Home</Link>
+                                <Link className="text-light mt-2 mx-2" to="/order">Order</Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
 
                     <Switch>
                         <Route path="/order">
-                            <Order></Order>
+                            <Order orderItems={this.state.orderItems}></Order>
                         </Route>
 
                         <Route path="/">
