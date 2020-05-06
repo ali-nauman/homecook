@@ -7,7 +7,7 @@ const FoodItem = (props) => {
     return (
         <>
             <Card className="border border-secondary" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={process.env.PUBLIC_URL + (props.item.image)} />
+                <Card.Img variant="top" src={process.env.PUBLIC_URL + (props.item.image)} width="286" height="286" />
                 <Card.Body>
                     <Card.Title>{props.item.name}</Card.Title>
                     <div className="font-weight-bold">
