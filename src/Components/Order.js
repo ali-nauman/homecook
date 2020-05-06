@@ -14,11 +14,12 @@ const Order = (props) => {
 
     if (props.orderItems.length === 0) {
         return (
-            <>
+            <div className="mx-4 mt-4">
                 {title}
                 <p>You have not added any items to your order yet! Go back to the homepage to add some items!</p>
-            </>)
-    }
+            </div>
+        )
+    };
 
     const orderItems = props.orderItems.map((item, i = 0) =>
         <tr>
