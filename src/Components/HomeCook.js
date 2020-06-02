@@ -19,24 +19,44 @@ class HomeCook extends React.Component {
         }
     }
 
-    addToOrder(item) {
-        let orderItems = this.state.orderItems;
-        let desiredItem = orderItems.find(i => i.item.id === item.id);
+    addToOrder(item, quantity) {
+        console.log(item, quantity);
+        // let orderItems = this.state.orderItems;
+        // let desiredItem = orderItems.find(i => i.item.id === item.id);
 
-        if (desiredItem) {
-            ++desiredItem.quantity;
-        }
-        else {
-            orderItems.push({
-                item: item,
-                quantity: 1
-            })
-        }
+        // if (desiredItem) {
+        //     ++desiredItem.quantity;
+        // }
+        // else {
+        //     orderItems.push({
+        //         item: item,
+        //         quantity: 1
+        //     })
+        // }
 
-        this.setState({
-            orderItems: orderItems
-        });
+        // this.setState({
+        //     orderItems: orderItems
+        // });
     }
+
+    // addToOrder(item) {
+    //     let orderItems = this.state.orderItems;
+    //     let desiredItem = orderItems.find(i => i.item.id === item.id);
+
+    //     if (desiredItem) {
+    //         ++desiredItem.quantity;
+    //     }
+    //     else {
+    //         orderItems.push({
+    //             item: item,
+    //             quantity: 1
+    //         })
+    //     }
+
+    //     this.setState({
+    //         orderItems: orderItems
+    //     });
+    // }
 
     getAvailableItems() {
         let menu = [];

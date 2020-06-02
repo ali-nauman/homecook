@@ -3,9 +3,13 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 
 function getTotalCost(items) {
-    return items.reduce((total, item) => {
-        return total + item.item.price * item.item.quantity
-    }, 0);
+    let total = 0
+
+    items.forEach(element => {
+        total += element.item.price * element.quantity
+    });
+
+    return total;
 }
 
 const Order = (props) => {
