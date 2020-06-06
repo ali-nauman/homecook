@@ -4,8 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Home from './Home';
-import Order from './Order';
+import HomePage from './HomePage';
+import OrderPage from './OrderPage';
 
 import FoodItems from '../Data/FoodItems';
 
@@ -19,44 +19,23 @@ class HomeCook extends React.Component {
         }
     }
 
-    addToOrder(item, quantity) {
-        console.log(item, quantity);
-        // let orderItems = this.state.orderItems;
-        // let desiredItem = orderItems.find(i => i.item.id === item.id);
+    addToOrder(item, servingSize) {
+        let orderItems = this.state.orderItems;
+        let desiredItem = orderItems.find(i => i.item.id === item.id);
 
-        // if (desiredItem) {
-        //     ++desiredItem.quantity;
-        // }
-        // else {
-        //     orderItems.push({
-        //         item: item,
-        //         quantity: 1
-        //     })
-        // }
+        if (!desiredItem) {
+            orderItems.push({
+                item: item,
+                quantity: servingSize / item.serving
+            })
+        } else {
+            desiredItem.quantity = servingSize / item.serving
+        }
 
-        // this.setState({
-        //     orderItems: orderItems
-        // });
+        this.setState({
+            orderItems: orderItems
+        });
     }
-
-    // addToOrder(item) {
-    //     let orderItems = this.state.orderItems;
-    //     let desiredItem = orderItems.find(i => i.item.id === item.id);
-
-    //     if (desiredItem) {
-    //         ++desiredItem.quantity;
-    //     }
-    //     else {
-    //         orderItems.push({
-    //             item: item,
-    //             quantity: 1
-    //         })
-    //     }
-
-    //     this.setState({
-    //         orderItems: orderItems
-    //     });
-    // }
 
     getAvailableItems() {
         let menu = [];
@@ -85,11 +64,11 @@ class HomeCook extends React.Component {
 
                     <Switch>
                         <Route path="/order">
-                            <Order orderItems={this.state.orderItems}></Order>
+                            <OrderPage orderItems={this.state.orderItems}></OrderPage>
                         </Route>
 
                         <Route path="/">
-                            <Home foodItems={this.state.foodItems} onClick={(id) => this.addToOrder(id)}></Home>
+                            <HomePage foodItems={this.state.foodItems} onClick={(item, quantity) => this.addToOrder(item, quantity)}></HomePage>
                         </Route>
                     </Switch>
                 </Router>
