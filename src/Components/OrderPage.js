@@ -12,7 +12,7 @@ function getTotalCost(items) {
     return total;
 }
 
-const Order = (props) => {
+const OrderPage = (props) => {
     const title = <h3 className="mt-4">Order</h3>
     const message = <p>Here you can view the details of your order</p>
 
@@ -68,4 +68,4 @@ const Order = (props) => {
     )
 }
 
-export default Order;
+export default OrderPage;

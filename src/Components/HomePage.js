@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 
 import FoodItemGrid from './FoodItemGrid';
 
-const Home = (props) => {
+const HomePage = (props) => {
     return (
         <div className="mx-4">
             <h3 className="mt-4">HomeCook</h3>
@@ -17,4 +17,4 @@ const Home = (props) => {
     );
 }
 
-export default Home;
+export default HomePage;
