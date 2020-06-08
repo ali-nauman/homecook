@@ -8,6 +8,7 @@ import HomePage from './HomePage';
 import OrderPage from './OrderPage';
 
 import FoodItems from '../Data/FoodItems';
+import CheckoutPage from './CheckoutPage';
 
 class HomeCook extends React.Component {
     constructor(props) {
@@ -63,6 +64,10 @@ class HomeCook extends React.Component {
                     </Navbar>
 
                     <Switch>
+                        <Route path="/checkout">
+                            <CheckoutPage></CheckoutPage>
+                        </Route>
+
                         <Route path="/order">
                             <OrderPage orderItems={this.state.orderItems}></OrderPage>
                         </Route>
