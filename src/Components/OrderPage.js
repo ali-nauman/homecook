@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 function getTotalCost(items) {
     let total = 0
@@ -62,6 +63,8 @@ const OrderPage = (props) => {
                         <td>{getTotalCost(props.orderItems)}</td>
                     </tr>
                 </Table>
+
+                <Link className="btn btn-primary" to="/checkout">Checkout</Link>
             </div>
     )
 }
