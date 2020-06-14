@@ -43,27 +43,27 @@ class CheckoutForm extends React.Component {
     render() {
         return (
             <form className="mt-4" onSubmit={this.handleSubmit}>
-                <div className="form-group row">
-                    <label className="col-1 col-form-label" htmlFor="house">House</label>
-                    <input className="col-3 form-control ml-4" type="text" id="house" value={this.state.house} onChange={this.handleHouseChange} required></input>
+                <div className="form-group">
+                    <label className="text-light" htmlFor="house">House</label>
+                    <input className="form-control col-sm-12 col-md-4" type="text" id="house" value={this.state.house} onChange={this.handleHouseChange} required></input>
                 </div>
 
-                <div className="form-group row">
-                    <label className="col-1 col-form-label" htmlFor="street">Street</label>
-                    <input className="col-3 form-control ml-4" type="text" id="street" value={this.state.street} onChange={this.handleStreetChange} required></input>
+                <div className="form-group">
+                    <label className="text-light" htmlFor="street">Street</label>
+                    <input className="form-control col-sm-12 col-md-4" type="text" id="street" value={this.state.street} onChange={this.handleStreetChange} required></input>
                 </div>
 
-                <div className="form-group row">
-                    <label className="col-1 col-form-label" htmlFor="block">Block/Sector</label>
-                    <input className="col-3 form-control ml-4" type="text" id="block" value={this.state.block} onChange={this.handleBlockChange} required></input>
+                <div className="form-group">
+                    <label className="text-light" htmlFor="block">Block/Sector</label>
+                    <input className="form-control col-sm-12 col-md-4" type="text" id="block" value={this.state.block} onChange={this.handleBlockChange} required></input>
                 </div>
 
-                <div className="form-group row">
-                    <label className="col-1 col-form-label" htmlFor="area">Area</label>
-                    <input className="col-3 form-control ml-4" type="text" id="area" value={this.state.area} onChange={this.handleAreaChange} required></input>
+                <div className="form-group">
+                    <label className="text-light" htmlFor="area">Area</label>
+                    <input className="form-control col-sm-12 col-md-4" type="text" id="area" value={this.state.area} onChange={this.handleAreaChange} required></input>
                 </div>
 
-                <button className="btn btn-primary" type="submit">Submit</button>
+                <button className="btn btn-primary mt-3" type="submit">Submit</button>
             </form>
         );
     }

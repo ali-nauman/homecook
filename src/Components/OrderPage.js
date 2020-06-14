@@ -14,14 +14,14 @@ function getTotalCost(items) {
 }
 
 const OrderPage = (props) => {
-    const title = <h3>Order</h3>;
-    const message = <p>Here you can view the details of your order</p>;
+    const title = <h3 className="text-white">Order</h3>;
+    const message = <p className="text-light">Here you can view the details of your order</p>;
 
     if (props.orderItems.length === 0) {
         return (
             <div className="mx-4 mt-4">
                 {title}
-                <p>You have not added any items to your order yet! Go back to the <Link to="/">home page</Link> to add some items!</p>
+                <p className="text-light">You have not added any items to your order yet! Go back to the <Link to="/">home page</Link> to add some items!</p>
             </div>
         );
     }
@@ -30,7 +30,6 @@ const OrderPage = (props) => {
         <tr key={i}>
             <td>{++i}</td>
             <td>{item.item.name}</td>
-            <td>{item.item.serving}</td>
             <td>Rs. {item.item.price}</td>
             <td>{item.quantity} (serves {item.item.serving * item.quantity})</td>
             <td>Rs. {item.quantity * item.item.price}</td>
@@ -42,31 +41,33 @@ const OrderPage = (props) => {
             {title}
             {message}
 
-            <Table bordered hover>
-                <thead className="thead-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Serving</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
+            <div className="table-responsive">
+                <Table bordered hover className="table-dark">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    {orderItems}
-                </tbody>
+                    <tbody>
+                        {orderItems}
+                    </tbody>
 
-                <tfoot>
-                    <tr>
-                        <td className="text-right font-weight-bold" colSpan="5">Total</td>
-                        <td>Rs. {getTotalCost(props.orderItems)}</td>
-                    </tr>
-                </tfoot>
-            </Table>
+                    <tfoot>
+                        <tr>
+                            <td className="text-right font-weight-bold" colSpan="4">Total</td>
+                            <td className="font-weight-bold">Rs. {getTotalCost(props.orderItems)}</td>
+                        </tr>
+                    </tfoot>
+                </Table>
+            </div>
 
-            <div>
+
+            <div className="mt-3">
                 <Link className="btn btn-primary" to="/checkout">Checkout</Link>
                 <Link className="btn btn-outline-primary ml-4" to="/">Add More Items</Link>
             </div>

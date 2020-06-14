@@ -24,19 +24,19 @@ class FoodItem extends React.Component {
 
     render() {
         return (
-            <Card className="bg-light" style={{ width: '18rem' }}>
+            <Card className="mt-4 bg-dark" style={{ width: '18rem'}}>
                 <Card.Img variant="top" src={process.env.PUBLIC_URL + (this.props.item.image)} width="286" height="286" />
                 <Card.Body>
-                    <Card.Title>{this.props.item.name}</Card.Title>
-                    <div className="font-weight-bold">
+                    <Card.Title className="text-white">{this.props.item.name}</Card.Title>
+                    <div className="font-weight-bold text-white">
                         Rs. {this.props.item.price}
                     </div>
 
-                    <div className="font-weight-bold d-inline">
+                    <div className="font-weight-bold d-inline text-white">
                         Serves: <div className="font-weight-normal d-inline">{this.props.item.serving}</div>
                     </div>
 
-                    <div className="mt-1">Order for</div>
+                    <div className="mt-1 text-white">Order for</div>
 
                     <form className="form-inline">
                         <input className="form-control w-50" id="servingSize" name="servingSize" type="number" min={this.props.item.serving} step={this.props.item.serving} value={this.state.servingSize} onChange={this.setServingSize}></input>

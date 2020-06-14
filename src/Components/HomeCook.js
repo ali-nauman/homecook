@@ -51,7 +51,7 @@ class HomeCook extends React.Component {
     render() {
         return (
             <Router>
-                <Navbar bg="dark" expand="lg">
+                <Navbar bg="dark" expand="lg" className="navbar-dark">
                     <Navbar.Brand className="text-white mt-1">HomeCook</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
