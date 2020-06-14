@@ -14,30 +14,30 @@ class CheckoutForm extends React.Component {
     handleHouseChange = event => {
         this.setState({
             house: event.target.value
-        })
+        });
     }
 
     handleStreetChange = event => {
         this.setState({
             street: event.target.value
-        })
+        });
     }
 
     handleBlockChange = event => {
         this.setState({
             block: event.target.value
-        })
+        });
     }
 
     handleAreaChange = event => {
         this.setState({
             area: event.target.value
-        })
+        });
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state);
+        alert(`Order confirmed! Your order will be shipped to ${this.state.house}, Street ${this.state.street}, Block ${this.state.block}, ${this.state.area}!`);
     }
 
     render() {
