@@ -19,7 +19,7 @@ const FoodItemGrid = (props) => {
         <>
             {gridItems}
         </>
-    )
+    );
 }
 
 export default FoodItemGrid;
