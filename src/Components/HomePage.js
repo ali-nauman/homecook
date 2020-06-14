@@ -1,17 +1,29 @@
 import React from 'react';
 
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import FoodItemGrid from './FoodItemGrid';
+import FoodItem from './FoodItem';
 
 const HomePage = (props) => {
+    const foodItems = props.foodItems.map(item =>
+        <Col xs={12} sm={6} md={6} lg={4} xl={3}>
+            <FoodItem
+                key={item.id}
+                item={item}
+                onClick={props.onClick}>
+            </FoodItem>
+        </Col>
+    );
+
+
     return (
         <div className="mx-4">
-            <h3 className="mt-4">HomeCook</h3>
-            <p>Take a look at the variety of fresh, home-made food that we can deliver at your doorstep!</p>
+            <h3 className="mt-4 text-white">HomeCook</h3>
+            <p className="text-light">Take a look at the variety of fresh, home-made food that we can deliver at your doorstep!</p>
 
-            <Row className="mt-5 d-flex justify-content-around">
-                <FoodItemGrid foodItems={props.foodItems} onClick={props.onClick}></FoodItemGrid>
+            <Row className="d-flex justify-content-between">
+                {foodItems}
             </Row>
         </div>
     );
