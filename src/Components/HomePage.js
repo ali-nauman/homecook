@@ -10,7 +10,7 @@ const HomePage = (props) => {
             <h3 className="mt-4">HomeCook</h3>
             <p>Take a look at the variety of fresh, home-made food that we can deliver at your doorstep!</p>
 
-            <Row className="d-flex justify-content-around">
+            <Row className="mt-5 d-flex justify-content-around">
                 <FoodItemGrid foodItems={props.foodItems} onClick={props.onClick}></FoodItemGrid>
             </Row>
         </div>
