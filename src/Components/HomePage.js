@@ -6,11 +6,16 @@ import Row from 'react-bootstrap/Row';
 import FoodItem from './FoodItem';
 
 const HomePage = (props) => {
-    const foodItems = props.foodItems.map(item =>
+    const menu = props.menu.map(item =>
         <Col xs={12} sm={6} md={6} lg={4} xl={3}>
             <FoodItem
                 key={item.id}
-                item={item}
+                id={item.id}
+                name={item.name}
+                image={item.image}
+                price={item.price}
+                serving={item.serving}
+                availableOnDay={item.availableOnDay}
                 onClick={props.onClick}>
             </FoodItem>
         </Col>
@@ -23,7 +28,7 @@ const HomePage = (props) => {
             <p className="text-light">Take a look at the variety of fresh, home-made food that we can deliver at your doorstep!</p>
 
             <Row className="d-flex justify-content-between">
-                {foodItems}
+                {menu}
             </Row>
         </div>
     );
