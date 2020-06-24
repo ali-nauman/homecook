@@ -6,46 +6,38 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import HomePage from './HomePage';
 import OrderPage from './OrderPage';
+import CheckoutPage from './CheckoutPage';
 
 import FoodItems from '../Data/FoodItems';
-import CheckoutPage from './CheckoutPage';
 
 class HomeCook extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            orderItems: [],
-            foodItems: this.getAvailableItems()
+            order: [],
+            menu: this.getMenu()
         };
     }
 
     addToOrder(item, servingSize) {
-        let orderItems = this.state.orderItems;
-        let desiredItem = orderItems.find(i => i.item.id === item.id);
+        let order = this.state.order;
+        let desiredItem = order.find(orderItem => orderItem.id === item.id);
 
-        if (!desiredItem) {
-            orderItems.push({
-                item: item,
-                quantity: servingSize / item.serving
-            });
-        } else {
+        if (desiredItem) {
             desiredItem.quantity = servingSize / item.serving;
+        } else {
+            item.quantity = servingSize / item.serving;
+            order.push(item);
         }
 
         this.setState({
-            orderItems: orderItems
+            order: order
         });
     }
 
-    getAvailableItems() {
-        let menu = [];
-
-        FoodItems.forEach((item) => {
-            if (item.availableOnDay === new Date().getDay()) { menu.push(item); }
-        })
-
-        return menu;
+    getMenu() {
+        return FoodItems.filter(item => item.availableOnDay === new Date().getDay())
     }
 
     render() {
@@ -68,11 +60,11 @@ class HomeCook extends React.Component {
                     </Route>
 
                     <Route path="/order">
-                        <OrderPage orderItems={this.state.orderItems}></OrderPage>
+                        <OrderPage orderItems={this.state.order}></OrderPage>
                     </Route>
 
                     <Route path="/">
-                        <HomePage foodItems={this.state.foodItems} onClick={(item, quantity) => this.addToOrder(item, quantity)}></HomePage>
+                        <HomePage menu={this.state.menu} onClick={(item, quantity) => this.addToOrder(item, quantity)}></HomePage>
                     </Route>
                 </Switch>
             </Router>
