@@ -4,18 +4,11 @@ import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 
 function getTotalCost(items) {
-    let total = 0;
-
-    items.forEach(element => {
-        total += element.item.price * element.quantity;
-    });
-
-    return total;
+    return items.reduce((subTotal, item) => subTotal + item.price * item.quantity, 0);
 }
 
 const OrderPage = (props) => {
     const title = <h3 className="text-white">Order</h3>;
-    const message = <p className="text-light">Here you can view the details of your order</p>;
 
     if (props.orderItems.length === 0) {
         return (
@@ -29,17 +22,17 @@ const OrderPage = (props) => {
     const orderItems = props.orderItems.map((item, i = 0) =>
         <tr key={i}>
             <td>{++i}</td>
-            <td>{item.item.name}</td>
-            <td>Rs. {item.item.price}</td>
-            <td>{item.quantity} (serves {item.item.serving * item.quantity})</td>
-            <td>Rs. {item.quantity * item.item.price}</td>
+            <td>{item.name}</td>
+            <td>Rs. {item.price}</td>
+            <td>{item.quantity} (serves {item.serving * item.quantity})</td>
+            <td>Rs. {item.quantity * item.price}</td>
         </tr>
     );
 
     return (
         <div className="mx-4 mt-4">
             {title}
-            {message}
+            <p className="text-light">Here you can view the details of your order</p>
 
             <div className="table-responsive">
                 <Table bordered hover className="table-dark">
@@ -69,7 +62,7 @@ const OrderPage = (props) => {
 
             <div className="mt-3">
                 <Link className="btn btn-primary" to="/checkout">Checkout</Link>
-                <Link className="btn btn-outline-primary ml-4" to="/">Add More Items</Link>
+                <Link className="btn btn-outline-primary ml-4 text-light" to="/">Add More Items</Link>
             </div>
         </div>
     );
