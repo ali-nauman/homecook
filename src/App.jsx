@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -8,59 +8,53 @@ import { CheckoutPage } from './components/CheckoutPage';
 import { Header } from './components/Header';
 import { foodItems } from './Data/FoodItems';
 
-export class App extends React.Component {
-  constructor(props) {
-    super(props);
+const getMenu = () => {
+  return foodItems.filter(
+    (item) => item.availableOnDay === new Date().getDay()
+  );
+};
 
-    this.state = {
-      order: [],
-      menu: this.getMenu(),
-    };
-  }
+export const App = () => {
+  const [order, setOrder] = useState([]);
+  const [menu, setMenu] = useState(() => getMenu());
 
-  addToOrder(item, servingSize) {
-    let order = this.state.order;
-    let desiredItem = order.find((orderItem) => orderItem.id === item.id);
+  const addToOrder = (item, servingSize) => {
+    setOrder((currentOrder) => {
+      const newOrder = [...currentOrder];
+      const desiredItem = currentOrder.find(
+        (orderItem) => orderItem.id === item.id
+      );
 
-    if (desiredItem) {
-      desiredItem.quantity = servingSize / item.serving;
-    } else {
-      item.quantity = servingSize / item.serving;
-      order.push(item);
-    }
+      if (desiredItem) {
+        desiredItem.quantity = servingSize / item.serving;
+      } else {
+        item.quantity = servingSize / item.serving;
+        newOrder.push(item);
+      }
 
-    this.setState({
-      order: order,
+      return newOrder;
     });
-  }
+  };
 
-  getMenu() {
-    return foodItems.filter(
-      (item) => item.availableOnDay === new Date().getDay()
-    );
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route
-            path="/order"
-            element={<OrderPage orderItems={this.state.order}></OrderPage>}
-          />
-          <Route
-            path="/"
-            element={
-              <HomePage
-                menu={this.state.menu}
-                onClick={(item, quantity) => this.addToOrder(item, quantity)}
-              ></HomePage>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    );
-  }
-}
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/order"
+          element={<OrderPage orderItems={order}></OrderPage>}
+        />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              menu={menu}
+              onClick={(item, quantity) => addToOrder(item, quantity)}
+            ></HomePage>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
+};
