@@ -4,13 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import OrderPage from './OrderPage';
-import CheckoutPage from './CheckoutPage';
+import HomePage from './Components/HomePage';
+import OrderPage from './Components/OrderPage';
+import CheckoutPage from './Components/CheckoutPage';
 
-import FoodItems from '../Data/FoodItems';
+import FoodItems from './Data/FoodItems';
 
-class HomeCook extends React.Component {
+export class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -80,5 +80,3 @@ class HomeCook extends React.Component {
     );
   }
 }
-
-export default HomeCook;
