@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export const FoodItem = (props) => {
-  const [servingSize, setServingSize] = useState(props.servingSize);
+  const [servingSize, setServingSize] = useState(props.serving);
 
   const handleServingSizeChange = (event) => {
     const newSize = Number(event.target.value);
