@@ -3,9 +3,9 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import FoodItem from './FoodItem';
+import { FoodItem } from './FoodItem';
 
-const HomePage = (props) => {
+export const HomePage = (props) => {
   const menu = props.menu.map((item) => (
     <Col key={item.id} xs={12} sm={6} md={6} lg={4} xl={3}>
       <FoodItem
@@ -33,5 +33,3 @@ const HomePage = (props) => {
     </div>
   );
 };
-
-export default HomePage;

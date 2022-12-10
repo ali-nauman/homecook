@@ -10,7 +10,7 @@ function getTotalCost(items) {
   );
 }
 
-const OrderPage = (props) => {
+export const OrderPage = (props) => {
   const title = <h3 className="text-white">Order</h3>;
 
   if (props.orderItems.length === 0) {
@@ -80,5 +80,3 @@ const OrderPage = (props) => {
     </div>
   );
 };
-
-export default OrderPage;

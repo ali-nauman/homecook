@@ -1,4 +1,4 @@
-let foodItems = [
+export const foodItems = [
   {
     id: 1,
     name: 'Biryani (Chicken)',
@@ -72,5 +72,3 @@ let foodItems = [
     availableOnDay: 0,
   },
 ];
-
-export default foodItems;

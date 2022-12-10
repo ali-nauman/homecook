@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CheckoutForm from './CheckoutForm';
+import { CheckoutForm } from './CheckoutForm';
 
-const CheckoutPage = (props) => {
+export const CheckoutPage = (props) => {
   return (
     <div className="mt-4 mx-4">
       <h3 className="text-white">Checkout</h3>
@@ -22,5 +22,3 @@ const CheckoutPage = (props) => {
     </div>
   );
 };
-
-export default CheckoutPage;

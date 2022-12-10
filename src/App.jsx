@@ -2,12 +2,11 @@ import React from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import HomePage from './components/HomePage';
-import OrderPage from './components/OrderPage';
-import CheckoutPage from './components/CheckoutPage';
-
-import FoodItems from './Data/FoodItems';
+import { HomePage } from './components/HomePage';
+import { OrderPage } from './components/OrderPage';
+import { CheckoutPage } from './components/CheckoutPage';
 import { Header } from './components/Header';
+import { foodItems } from './Data/FoodItems';
 
 export class App extends React.Component {
   constructor(props) {
@@ -36,7 +35,7 @@ export class App extends React.Component {
   }
 
   getMenu() {
-    return FoodItems.filter(
+    return foodItems.filter(
       (item) => item.availableOnDay === new Date().getDay()
     );
   }

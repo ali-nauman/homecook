@@ -3,7 +3,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-class FoodItem extends React.Component {
+export class FoodItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -83,5 +83,3 @@ class FoodItem extends React.Component {
     );
   }
 }
-
-export default FoodItem;
