@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
-import FoodItem from "./FoodItem";
+import FoodItem from './FoodItem';
 
 const HomePage = (props) => {
   const menu = props.menu.map((item) => (

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import HomePage from "./HomePage";
-import OrderPage from "./OrderPage";
-import CheckoutPage from "./CheckoutPage";
+import HomePage from './HomePage';
+import OrderPage from './OrderPage';
+import CheckoutPage from './CheckoutPage';
 
-import FoodItems from "../Data/FoodItems";
+import FoodItems from '../Data/FoodItems';
 
 class HomeCook extends React.Component {
   constructor(props) {
