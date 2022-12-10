@@ -16,7 +16,7 @@ const getMenu = () => {
 
 export const App = () => {
   const [order, setOrder] = useState([]);
-  const [menu, setMenu] = useState(() => getMenu());
+  const [menu] = useState(() => getMenu());
 
   const addToOrder = (item, servingSize) => {
     setOrder((currentOrder) => {

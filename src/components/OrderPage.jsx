@@ -58,7 +58,7 @@ export const OrderPage = (props) => {
 
           <tfoot>
             <tr>
-              <td className="text-right font-weight-bold" colSpan="4">
+              <td className="text-right font-weight-bold" colSpan={4}>
                 Total
               </td>
               <td className="font-weight-bold">
