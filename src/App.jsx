@@ -4,9 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-import HomePage from './Components/HomePage';
-import OrderPage from './Components/OrderPage';
-import CheckoutPage from './Components/CheckoutPage';
+import HomePage from './components/HomePage';
+import OrderPage from './components/OrderPage';
+import CheckoutPage from './components/CheckoutPage';
 
 import FoodItems from './Data/FoodItems';
 
