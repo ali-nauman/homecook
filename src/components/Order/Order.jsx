@@ -12,9 +12,14 @@ function getTotalCost(items) {
 }
 
 export const OrderPage = () => {
-  const { order } = useContext(HomeCookContext);
+  const { order, setOrder } = useContext(HomeCookContext);
 
   const title = <h3 className="text-white">Order</h3>;
+
+  const deleteItem = (id) => {
+    const newOrder = order.filter((i) => i.id !== id);
+    setOrder(newOrder);
+  };
 
   if (order.length === 0) {
     return (
@@ -37,6 +42,11 @@ export const OrderPage = () => {
         {item.quantity} (serves {item.serving * item.quantity})
       </td>
       <td>Rs. {item.quantity * item.price}</td>
+      <td>
+        <button className="btn btn-danger" onClick={() => deleteItem(item.id)}>
+          Delete
+        </button>
+      </td>
     </tr>
   ));
 
@@ -54,6 +64,7 @@ export const OrderPage = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Subtotal</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
@@ -61,7 +72,7 @@ export const OrderPage = () => {
 
           <tfoot>
             <tr>
-              <td className="text-right font-weight-bold" colSpan={4}>
+              <td className="text-right font-weight-bold" colSpan={5}>
                 Total
               </td>
               <td className="font-weight-bold">Rs. {getTotalCost(order)}</td>
@@ -70,11 +81,14 @@ export const OrderPage = () => {
         </Table>
       </div>
 
-      <div className="mt-3">
-        <Link className="btn btn-primary" to="/checkout">
+      <div className="d-flex gap-2 mt-3">
+        <Link className="btn btn-primary d-inline-block" to="/checkout">
           Checkout
         </Link>
-        <Link className="btn btn-outline-primary ml-4 text-light" to="/">
+        <Link
+          className="btn btn-outline-primary ml-4 text-light d-inline-block"
+          to="/"
+        >
           Add More Items
         </Link>
       </div>
