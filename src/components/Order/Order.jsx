@@ -11,7 +11,7 @@ function getTotalCost(items) {
   );
 }
 
-export const OrderPage = () => {
+export const Order = () => {
   const { order, setOrder } = useContext(HomeCookContext);
 
   const title = <h3 className="text-white">Order</h3>;
