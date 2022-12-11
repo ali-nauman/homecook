@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export const FoodItem = (props) => {
-  const [servingSize, setServingSize] = useState(props.serving);
+export const FoodItem = ({ item, onClick }) => {
+  const [servingSize, setServingSize] = useState(item.serving);
 
   const handleServingSizeChange = (event) => {
     const newSize = Number(event.target.value);
 
-    if (newSize >= props.serving) {
+    if (newSize >= item.serving) {
       setServingSize(newSize);
     }
   };
@@ -17,16 +17,16 @@ export const FoodItem = (props) => {
     <Card className="mt-4" style={{ width: '18rem', backgroundColor: '#333' }}>
       <Card.Img
         variant="top"
-        src={process.env.PUBLIC_URL + props.image}
+        src={process.env.PUBLIC_URL + item.image}
         width="286"
         height="286"
       />
       <Card.Body>
         <Card.Title className="text-white mb-0">
-          {props.name} - Rs. {props.price}
+          {item.name} - Rs. {item.price}
         </Card.Title>
         <small className="font-weight-bold d-inline text-white">
-          (Serves {props.serving})
+          (Serves {item.serving})
         </small>
 
         <div className="mt-1 text-white">Order for</div>
@@ -37,8 +37,8 @@ export const FoodItem = (props) => {
             id="servingSize"
             name="servingSize"
             type="number"
-            min={props.serving}
-            step={props.serving}
+            min={item.serving}
+            step={item.serving}
             value={servingSize}
             onChange={handleServingSizeChange}
           ></input>
@@ -46,19 +46,7 @@ export const FoodItem = (props) => {
           <Button
             className="d-block ml-5 px-3"
             variant="primary"
-            onClick={() =>
-              props.onClick(
-                {
-                  id: props.id,
-                  name: props.name,
-                  image: props.image,
-                  price: props.price,
-                  serving: props.serving,
-                  availableOnDay: props.availableOnDay,
-                },
-                servingSize
-              )
-            }
+            onClick={() => onClick(item, servingSize)}
           >
             Order
           </Button>
