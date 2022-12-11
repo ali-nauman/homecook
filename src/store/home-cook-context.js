@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-import { foodItems } from '../Data/FoodItems';
+import foodItems from '../data.json';
 
 const getMenu = () => {
   return foodItems.filter(
