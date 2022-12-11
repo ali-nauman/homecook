@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 import { HomeCookContext } from 'store/home-cook-context';
-import { FoodItem } from './FoodItem';
+import { FoodItem } from '../UI/FoodItem';
 
 export const HomePage = () => {
   const { order, setOrder, menu } = useContext(HomeCookContext);

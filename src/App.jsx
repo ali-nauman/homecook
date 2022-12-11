@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { HomePage } from './components/HomePage';
-import { OrderPage } from './components/OrderPage';
-import { CheckoutPage } from './components/CheckoutPage';
-import { Header } from './components/Header';
+import { HomePage } from './components/Home/Home';
+import { OrderPage } from './components/Order/Order';
+import { CheckoutPage } from './components/Checkout/Checkout';
+import { Header } from './components/UI/Header';
 import { HomeCookProvider } from './store/home-cook-context';
 
 export const App = () => {
