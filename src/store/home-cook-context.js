@@ -19,7 +19,6 @@ export const HomeCookProvider = ({ children }) => {
   const [order, setOrder] = useState([]);
 
   const updateOrder = (newOrder) => {
-    console.log('Updating order to', newOrder);
     setOrder(newOrder);
   };
 
