@@ -9,7 +9,7 @@ import { HomeCookProvider } from './store/home-cook-context';
 
 export const App = () => {
   return (
-    <main className="container-fluid bg-dark">
+    <main className="container-fluid bg-dark min-vh-100">
       <HomeCookProvider>
         <BrowserRouter>
           <Header />
