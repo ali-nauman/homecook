@@ -1,12 +1,28 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+import { HomeCookContext } from 'store/home-cook-context';
 import { FoodItem } from './FoodItem';
 
-export const HomePage = (props) => {
-  const menu = props.menu.map((item) => (
+export const HomePage = () => {
+  const { order, setOrder, menu } = useContext(HomeCookContext);
+
+  const addToOrder = (item, servingSize) => {
+    const newOrder = [...order];
+    const desiredItem = newOrder.find((orderItem) => orderItem.id === item.id);
+
+    if (desiredItem) {
+      desiredItem.quantity = servingSize / item.serving;
+    } else {
+      item.quantity = servingSize / item.serving;
+      newOrder.push(item);
+    }
+
+    setOrder(newOrder);
+  };
+
+  const currentMenu = menu.map((item) => (
     <Col key={item.id} xs={12} sm={6} md={6} lg={4} xl={3}>
       <FoodItem
         key={item.id}
@@ -16,7 +32,7 @@ export const HomePage = (props) => {
         price={item.price}
         serving={item.serving}
         availableOnDay={item.availableOnDay}
-        onClick={props.onClick}
+        onClick={addToOrder}
       ></FoodItem>
     </Col>
   ));
@@ -29,7 +45,7 @@ export const HomePage = (props) => {
         at your doorstep!
       </p>
 
-      <Row className="d-flex justify-content-between">{menu}</Row>
+      <Row className="d-flex justify-content-between">{currentMenu}</Row>
     </div>
   );
 };

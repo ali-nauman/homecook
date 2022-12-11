@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import { HomeCookContext } from '../store/home-cook-context';
 
 function getTotalCost(items) {
   return items.reduce(
@@ -10,10 +11,12 @@ function getTotalCost(items) {
   );
 }
 
-export const OrderPage = (props) => {
+export const OrderPage = () => {
+  const { order } = useContext(HomeCookContext);
+
   const title = <h3 className="text-white">Order</h3>;
 
-  if (props.orderItems.length === 0) {
+  if (order.length === 0) {
     return (
       <div className="mx-4 mt-4">
         {title}
@@ -25,7 +28,7 @@ export const OrderPage = (props) => {
     );
   }
 
-  const orderItems = props.orderItems.map((item, i = 0) => (
+  const orderItems = order.map((item, i = 0) => (
     <tr key={i}>
       <td>{++i}</td>
       <td>{item.name}</td>
@@ -61,9 +64,7 @@ export const OrderPage = (props) => {
               <td className="text-right font-weight-bold" colSpan={4}>
                 Total
               </td>
-              <td className="font-weight-bold">
-                Rs. {getTotalCost(props.orderItems)}
-              </td>
+              <td className="font-weight-bold">Rs. {getTotalCost(order)}</td>
             </tr>
           </tfoot>
         </Table>
