@@ -22,17 +22,17 @@ export const FoodItem = (props) => {
         height="286"
       />
       <Card.Body>
-        <Card.Title className="text-white">{props.name}</Card.Title>
-        <div className="font-weight-bold text-white">Rs. {props.price}</div>
-
-        <div className="font-weight-bold d-inline text-white">
-          Serves:{' '}
-          <div className="font-weight-normal d-inline">{props.serving}</div>
-        </div>
+        <Card.Title className="text-white mb-0">
+          {props.name} - Rs. {props.price}
+        </Card.Title>
+        <small className="font-weight-bold d-inline text-white">
+          (Serves {props.serving})
+        </small>
 
         <div className="mt-1 text-white">Order for</div>
 
-        <form className="form-inline">
+        {/* <form className="form-inline"> */}
+        <div className="d-flex justify-content-between">
           <input
             className="form-control w-50"
             id="servingSize"
@@ -63,7 +63,9 @@ export const FoodItem = (props) => {
           >
             Order
           </Button>
-        </form>
+        </div>
+
+        {/* </form> */}
       </Card.Body>
     </Card>
   );
