@@ -33,8 +33,8 @@ export const OrderPage = () => {
     );
   }
 
-  const orderItems = order.map((item, i = 0) => (
-    <tr key={i}>
+  const orderItems = order.map((item, i) => (
+    <tr key={item.id}>
       <td>{++i}</td>
       <td>{item.name}</td>
       <td>Rs. {item.price}</td>
