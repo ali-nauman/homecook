@@ -12,7 +12,7 @@ export const Header = () => {
   const { order } = useContext(HomeCookContext);
 
   const links = [
-    { label: 'Home', path: '/' },
+    { label: 'Menu', path: '/' },
     {
       label: 'Order',
       path: '/order',

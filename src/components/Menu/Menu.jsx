@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import { HomeCookContext } from 'store/home-cook-context';
 import { FoodItem } from '../UI/FoodItem';
 
-export const HomePage = () => {
+export const Menu = () => {
   const { order, setOrder, menu } = useContext(HomeCookContext);
 
   const addToOrder = (item, servingSize) => {

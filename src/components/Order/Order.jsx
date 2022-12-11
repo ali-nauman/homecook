@@ -27,7 +27,7 @@ export const Order = () => {
         {title}
         <p className="text-light">
           You have not added any items to your order yet! Go back to the{' '}
-          <Link to="/">home page</Link> to add some items!
+          <Link to="/">menu</Link> to add some items!
         </p>
       </div>
     );
