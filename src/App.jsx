@@ -9,15 +9,17 @@ import { HomeCookProvider } from './store/home-cook-context';
 
 export const App = () => {
   return (
-    <HomeCookProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/order" element={<OrderPage />} />
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </BrowserRouter>
-    </HomeCookProvider>
+    <main className="container-fluid bg-dark">
+      <HomeCookProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
+      </HomeCookProvider>
+    </main>
   );
 };
