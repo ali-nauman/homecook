@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CheckoutForm } from './CheckoutForm';
 
-export const CheckoutPage = (props) => {
+export const CheckoutPage = () => {
   return (
     <div className="mt-4 mx-4">
       <h3 className="text-white">Checkout</h3>
