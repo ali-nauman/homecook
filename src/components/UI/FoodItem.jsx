@@ -14,7 +14,7 @@ export const FoodItem = (props) => {
   };
 
   return (
-    <Card className="mt-4 bg-dark" style={{ width: '18rem' }}>
+    <Card className="mt-4" style={{ width: '18rem', backgroundColor: '#333' }}>
       <Card.Img
         variant="top"
         src={process.env.PUBLIC_URL + props.image}
@@ -31,7 +31,6 @@ export const FoodItem = (props) => {
 
         <div className="mt-1 text-white">Order for</div>
 
-        {/* <form className="form-inline"> */}
         <div className="d-flex justify-content-between">
           <input
             className="form-control w-50"
@@ -64,8 +63,6 @@ export const FoodItem = (props) => {
             Order
           </Button>
         </div>
-
-        {/* </form> */}
       </Card.Body>
     </Card>
   );
