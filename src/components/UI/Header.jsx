@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 
-import { HomeCookContext } from 'store/home-cook-context';
+import { HomeCookContext } from 'src/store';
 
 export const Header = () => {
   const location = useLocation();

@@ -1,11 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Checkout } from './components/Checkout/Checkout';
-import { Menu } from './components/Menu/Menu';
-import { Order } from './components/Order/Order';
-import { Header } from './components/UI/Header';
-import { HomeCookProvider } from './store/home-cook-context';
+import { Checkout, Header, Menu, Order } from 'src/components';
+import { HomeCookProvider } from 'src/store';
 
 export const App = () => {
   return (
