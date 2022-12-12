@@ -86,7 +86,7 @@ export const Order = () => {
           Checkout
         </Link>
         <Link
-          className="btn btn-outline-primary ml-4 text-light d-inline-block"
+          className="btn btn-secondary ml-4 text-light d-inline-block"
           to="/"
         >
           Add More Items
