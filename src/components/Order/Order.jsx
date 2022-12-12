@@ -34,7 +34,7 @@ export const Order = () => {
   }
 
   const orderItems = order.map((item, i) => (
-    <tr key={item.id}>
+    <tr key={item.id} className="align-middle">
       <td>{++i}</td>
       <td>{item.name}</td>
       <td>Rs. {item.price}</td>
@@ -72,10 +72,10 @@ export const Order = () => {
 
           <tfoot>
             <tr>
-              <td className="text-right font-weight-bold" colSpan={5}>
+              <td className="text-end fw-bold" colSpan={5}>
                 Total
               </td>
-              <td className="font-weight-bold">Rs. {getTotalCost(order)}</td>
+              <td className="fw-bold">Rs. {getTotalCost(order)}</td>
             </tr>
           </tfoot>
         </Table>
