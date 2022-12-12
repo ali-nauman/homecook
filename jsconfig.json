@@ -7,7 +7,7 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "checkJs": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "resolveJsonModule": true
   },
   "exclude": ["node_modules", "**/node_modules/*"]
