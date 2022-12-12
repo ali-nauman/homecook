@@ -5,6 +5,7 @@ specifiers:
   eslint: ^8.29.0
   eslint-plugin-react: ^7.31.11
   prettier: ^2.8.1
+  prop-types: ^15.8.1
   react: ^18.2.0
   react-bootstrap: ^2.7.0
   react-dom: ^18.2.0
@@ -13,6 +14,7 @@ specifiers:
 
 dependencies:
   bootstrap: 5.2.3
+  prop-types: 15.8.1
   react: 18.2.0
   react-bootstrap: 2.7.0_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
