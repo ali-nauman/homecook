@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -29,19 +30,16 @@ export const FoodItem = ({ item, onClick }) => {
           (Serves {item.serving})
         </small>
 
-        <div className="mt-1 text-white">Order for</div>
+        <div className="mt-1 text-white">Order for {servingSize}</div>
 
-        <div className="d-flex justify-content-between">
-          <input
-            className="form-control w-50"
-            id="servingSize"
+        <div className="d-flex gap-4 align-items-center">
+          <Form.Range
             name="servingSize"
-            type="number"
             min={item.serving}
             step={item.serving}
             value={servingSize}
             onChange={handleServingSizeChange}
-          ></input>
+          />
 
           <Button
             className="d-block ml-5 px-3"
