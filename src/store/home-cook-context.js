@@ -3,9 +3,7 @@ import React, { createContext, useState } from 'react';
 import foodItems from '../data.json';
 
 const getMenu = () => {
-  return foodItems.filter(
-    (item) => item.availableOnDay === new Date().getDay()
-  );
+  return foodItems.filter(item => item.availableOnDay === new Date().getDay());
 };
 
 export const HomeCookContext = createContext({
@@ -18,7 +16,7 @@ export const HomeCookProvider = ({ children }) => {
   const [menu] = useState(getMenu());
   const [order, setOrder] = useState([]);
 
-  const updateOrder = (newOrder) => {
+  const updateOrder = newOrder => {
     setOrder(newOrder);
   };
 

@@ -10,7 +10,7 @@ export const Menu = () => {
 
   const addToOrder = (item, servingSize) => {
     const newOrder = [...order];
-    const desiredItem = newOrder.find((orderItem) => orderItem.id === item.id);
+    const desiredItem = newOrder.find(orderItem => orderItem.id === item.id);
 
     if (desiredItem) {
       desiredItem.quantity = servingSize / item.serving;
@@ -22,7 +22,7 @@ export const Menu = () => {
     setOrder(newOrder);
   };
 
-  const currentMenu = menu.map((item) => (
+  const currentMenu = menu.map(item => (
     <Col key={item.id} xs={12} sm={6} md={6} lg={4} xl={3}>
       <FoodItem key={item.id} item={item} onClick={addToOrder}></FoodItem>
     </Col>

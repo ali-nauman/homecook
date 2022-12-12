@@ -8,11 +8,11 @@ export const CheckoutForm = () => {
     area: '',
   });
 
-  const handleFormValueChange = (event) => {
-    setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
+  const handleFormValueChange = event => {
+    setForm(f => ({ ...f, [event.target.name]: event.target.value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     alert(
       `Order confirmed! Your order will be shipped to ${form.house}, Street ${form.street}, Block ${form.block}, ${form.area}!`

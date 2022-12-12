@@ -28,7 +28,7 @@ export const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="d-flex gap-3">
-          {links.map((link) => (
+          {links.map(link => (
             <NavItem key={link.path}>
               <Link
                 className="text-decoration-none"

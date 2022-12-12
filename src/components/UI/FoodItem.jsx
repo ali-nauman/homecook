@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 export const FoodItem = ({ item, onClick }) => {
   const [servingSize, setServingSize] = useState(item.serving);
 
-  const handleServingSizeChange = (event) => {
+  const handleServingSizeChange = event => {
     const newSize = Number(event.target.value);
 
     if (newSize >= item.serving) {

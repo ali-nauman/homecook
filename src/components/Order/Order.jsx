@@ -16,8 +16,8 @@ export const Order = () => {
 
   const title = <h3 className="text-white">Order</h3>;
 
-  const deleteItem = (id) => {
-    const newOrder = order.filter((i) => i.id !== id);
+  const deleteItem = id => {
+    const newOrder = order.filter(i => i.id !== id);
     setOrder(newOrder);
   };
 
