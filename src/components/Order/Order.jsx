@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-
-import Table from 'react-bootstrap/Table';
+import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
 import { HomeCookContext } from '../../store/home-cook-context';
 
 function getTotalCost(items) {

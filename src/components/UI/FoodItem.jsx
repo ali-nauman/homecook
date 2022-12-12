@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Button, Card, Form } from 'react-bootstrap';
 
 export const FoodItem = ({ item, onClick }) => {
   const [servingSize, setServingSize] = useState(item.serving);

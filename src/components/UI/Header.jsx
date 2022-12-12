@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 import { HomeCookContext } from 'store/home-cook-context';
-import { useLocation } from 'react-router-dom';
-import { NavItem } from 'react-bootstrap';
 
 export const Header = () => {
   const location = useLocation();

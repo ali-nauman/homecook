@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Col, Row } from 'react-bootstrap';
 
 import { HomeCookContext } from 'store/home-cook-context';
 import { FoodItem } from '../UI/FoodItem';
