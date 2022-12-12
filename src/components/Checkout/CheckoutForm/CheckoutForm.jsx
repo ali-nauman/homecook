@@ -28,7 +28,7 @@ export const CheckoutForm = () => {
       <Row>
         <Col md={4} className="d-flex flex-column gap-4">
           <Form.Group controlId="line1">
-            <Form.Label className="text-white">Address Line 1</Form.Label>
+            <Form.Label>Address Line 1</Form.Label>
             <Form.Control
               type="string"
               name="line1"
@@ -38,7 +38,7 @@ export const CheckoutForm = () => {
           </Form.Group>
 
           <Form.Group controlId="line2">
-            <Form.Label className="text-white">Address Line 2</Form.Label>
+            <Form.Label>Address Line 2</Form.Label>
             <Form.Control
               type="string"
               name="line2"

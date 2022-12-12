@@ -29,8 +29,8 @@ export const Menu = () => {
 
   return (
     <div className="mx-4">
-      <h3 className="mt-4 text-white">HomeCook</h3>
-      <p className="text-light">
+      <h3 className="mt-4">HomeCook</h3>
+      <p>
         Take a look at the variety of fresh, home-made food that we can deliver
         at your doorstep!
       </p>

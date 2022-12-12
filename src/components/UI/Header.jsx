@@ -21,7 +21,7 @@ export const Header = () => {
 
   return (
     <Navbar bg="dark" expand="lg" className="navbar-dark">
-      <Navbar.Brand className="text-white">HomeCook</Navbar.Brand>
+      <Navbar.Brand>HomeCook</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="d-flex gap-3">

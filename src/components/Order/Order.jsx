@@ -14,7 +14,7 @@ function getTotalCost(items) {
 export const Order = () => {
   const { order, setOrder } = useContext(HomeCookContext);
 
-  const title = <h3 className="text-white">Order</h3>;
+  const title = <h3>Order</h3>;
 
   const deleteItem = id => {
     const newOrder = order.filter(i => i.id !== id);
@@ -25,7 +25,7 @@ export const Order = () => {
     return (
       <div className="mx-4 mt-4">
         {title}
-        <p className="text-light">
+        <p>
           You have not added any items to your order yet! Go back to the{' '}
           <Link to="/">menu</Link> to add some items!
         </p>
@@ -53,7 +53,7 @@ export const Order = () => {
   return (
     <div className="mx-4 mt-4">
       {title}
-      <p className="text-light">Here you can view the details of your order</p>
+      <p>Here you can view the details of your order</p>
 
       <div className="table-responsive">
         <Table bordered hover className="table-dark">
@@ -85,10 +85,7 @@ export const Order = () => {
         <Link className="btn btn-primary d-inline-block" to="/checkout">
           Checkout
         </Link>
-        <Link
-          className="btn btn-secondary ml-4 text-light d-inline-block"
-          to="/"
-        >
+        <Link className="btn btn-secondary ml-4 d-inline-block" to="/">
           Add More Items
         </Link>
       </div>

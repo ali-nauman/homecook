@@ -21,14 +21,14 @@ export const FoodItem = ({ item, onClick }) => {
         height="286"
       />
       <Card.Body>
-        <Card.Title className="text-white mb-0">
+        <Card.Title className="mb-0">
           {item.name} - Rs. {item.price}
         </Card.Title>
-        <small className="font-weight-bold d-inline text-white">
+        <small className="font-weight-bold d-inline">
           (Serves {item.serving})
         </small>
 
-        <div className="mt-1 text-white">Order for {servingSize}</div>
+        <div className="mt-1">Order for {servingSize}</div>
 
         <div className="d-flex gap-4 align-items-center">
           <Form.Range
