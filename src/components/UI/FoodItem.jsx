@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 
@@ -50,4 +51,9 @@ export const FoodItem = ({ item, onClick }) => {
       </Card.Body>
     </Card>
   );
+};
+
+FoodItem.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
 };

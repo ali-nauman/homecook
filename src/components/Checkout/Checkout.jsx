@@ -7,7 +7,8 @@ export const Checkout = () => {
     <div className="mt-4 mx-4">
       <h3>Checkout</h3>
       <p>
-        Enter the details of where<sup>*</sup> you'd like your food delivered
+        Enter the details of where<sup>*</sup> you&apos;d like your food
+        delivered
         <sup>**</sup>
       </p>
 

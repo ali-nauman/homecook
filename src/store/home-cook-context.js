@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
 
 import foodItems from '../data.json';
@@ -25,4 +26,8 @@ export const HomeCookProvider = ({ children }) => {
       {children}
     </HomeCookContext.Provider>
   );
+};
+
+HomeCookProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
