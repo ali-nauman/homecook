@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { HomeCookContext } from 'src/store';
 
 export const Header = () => {
-  const location = useLocation();
   const { order } = useContext(HomeCookContext);
 
   const links = [
@@ -20,23 +19,25 @@ export const Header = () => {
   ];
 
   return (
-    <Navbar bg="dark" expand="lg" className="navbar-dark">
+    <Navbar
+      style={{ backgroundColor: '#333' }}
+      expand="lg"
+      className="navbar-dark px-4"
+    >
       <Navbar.Brand>HomeCook</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="d-flex gap-3">
           {links.map(link => (
             <NavItem key={link.path}>
-              <Link
-                className="text-decoration-none"
-                style={{
-                  color:
-                    location.pathname === link.path ? 'dodgerblue' : 'white',
-                }}
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
                 to={link.path}
               >
                 {link.label} {link.content}
-              </Link>
+              </NavLink>
             </NavItem>
           ))}
         </Nav>
