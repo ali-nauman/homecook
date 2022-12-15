@@ -23,7 +23,7 @@ export const Menu = () => {
 
   const currentMenu = menu.map(item => (
     <Col key={item.id} xs={12} sm={6} md={6} lg={4} xl={3}>
-      <FoodItem key={item.id} item={item} onClick={addToOrder}></FoodItem>
+      <FoodItem key={item.id} item={item} onClick={addToOrder} />
     </Col>
   ));
 

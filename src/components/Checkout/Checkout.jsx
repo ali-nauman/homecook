@@ -19,7 +19,7 @@ export const Checkout = () => {
       <small className="text-danger">
         ** Note: Your order will be delivered after 5 hours as per our policy
       </small>
-      <CheckoutForm></CheckoutForm>
+      <CheckoutForm />
     </div>
   );
 };
