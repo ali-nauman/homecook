@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
 
+import { useLocalStorage } from 'src/hooks';
+
 import foodItems from '../data.json';
 
 const getMenu = () => {
@@ -15,7 +17,7 @@ export const HomeCookContext = createContext({
 
 export const HomeCookProvider = ({ children }) => {
   const [menu] = useState(getMenu());
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useLocalStorage('order', []);
 
   const updateOrder = newOrder => {
     setOrder(newOrder);
