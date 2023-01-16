@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { ChangeEvent, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { MenuItem, OrderItem } from 'src/models';
@@ -57,9 +56,4 @@ export const FoodItem = ({ item, onClick }: Props) => {
       </Card.Body>
     </Card>
   );
-};
-
-FoodItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired,
 };

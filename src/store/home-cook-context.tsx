@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { createContext, ReactNode, useState } from 'react';
 
 import { useLocalStorage } from 'src/hooks';
@@ -35,8 +34,4 @@ export const HomeCookProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </HomeCookContext.Provider>
   );
-};
-
-HomeCookProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
