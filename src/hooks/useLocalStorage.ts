@@ -1,12 +1,6 @@
 import { useState } from 'react';
 
-/**
- *
- * @param {string} key
- * @param {any} initialValue
- * @returns
- */
-export function useLocalStorage(key, initialValue) {
+export function useLocalStorage<T>(key: string, initialValue: T) {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = localStorage.getItem(key);
@@ -17,7 +11,7 @@ export function useLocalStorage(key, initialValue) {
     }
   });
 
-  const setValue = value => {
+  const setValue = (value: T) => {
     try {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
@@ -28,5 +22,5 @@ export function useLocalStorage(key, initialValue) {
     }
   };
 
-  return [storedValue, setValue];
+  return [storedValue, setValue] as const;
 }

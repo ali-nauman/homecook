@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
+import { MenuItem, OrderItem } from 'src/models';
 
-export const FoodItem = ({ item, onClick }) => {
+interface Props {
+  item: MenuItem;
+  onClick: (item: OrderItem, servingSize: number) => void;
+}
+
+export const FoodItem = ({ item, onClick }: Props) => {
   const [servingSize, setServingSize] = useState(item.serving);
 
-  const handleServingSizeChange = event => {
+  const handleServingSizeChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newSize = Number(event.target.value);
 
     if (newSize >= item.serving) {
@@ -43,7 +49,7 @@ export const FoodItem = ({ item, onClick }) => {
           <Button
             className="d-block ml-5 px-3"
             variant="primary"
-            onClick={() => onClick(item, servingSize)}
+            onClick={() => onClick(item as OrderItem, servingSize)}
           >
             Order
           </Button>

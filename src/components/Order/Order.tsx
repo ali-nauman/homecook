@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { OrderItem } from 'src/models';
 
 import { HomeCookContext } from 'src/store';
 
-function getTotalCost(items) {
+function getTotalCost(items: OrderItem[]) {
   return items.reduce(
     (subTotal, item) => subTotal + item.price * item.quantity,
     0
@@ -16,7 +17,7 @@ export const Order = () => {
 
   const title = <h3>Order</h3>;
 
-  const deleteItem = id => {
+  const deleteItem = (id: number) => {
     const newOrder = order.filter(i => i.id !== id);
     setOrder(newOrder);
   };

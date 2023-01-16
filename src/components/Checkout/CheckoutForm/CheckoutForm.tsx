@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 
 export const CheckoutForm = () => {
@@ -7,11 +7,11 @@ export const CheckoutForm = () => {
     line2: '',
   });
 
-  const handleFormValueChange = event => {
+  const handleFormValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAddress(f => ({ ...f, [event.target.name]: event.target.value.trim() }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
     if (!address.line1.length) return;

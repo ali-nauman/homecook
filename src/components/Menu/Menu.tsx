@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
+import { OrderItem } from 'src/models';
 
 import { HomeCookContext } from 'src/store';
 import { FoodItem } from './FoodItem/FoodItem';
@@ -10,7 +11,7 @@ export const Menu = () => {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    let timeoutId = null;
+    let timeoutId: NodeJS.Timeout;
     if (showToast) {
       timeoutId = setTimeout(() => {
         setShowToast(false);
@@ -26,7 +27,7 @@ export const Menu = () => {
     setShowToast(s => !s);
   };
 
-  const addToOrder = (item, servingSize) => {
+  const addToOrder = (item: OrderItem, servingSize: number) => {
     const newOrder = [...order];
     const desiredItem = newOrder.find(orderItem => orderItem.id === item.id);
 
