@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import {  Header  } from 'src/components';
+import { Header } from 'src/components';
 import { HomeCookProvider } from 'src/store';
 import { Checkout } from './features/checkout/Checkout';
 import { Menu } from './features/menu/Menu';
