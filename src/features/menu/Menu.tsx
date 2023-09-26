@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
 
-import { HomeCookContext } from 'src/store';
 import { OrderItem } from '../order/types';
 import { FoodItem } from './FoodItem';
 import { useMenu } from './useMenu';
 
 export const Menu = () => {
   const day = new Date().getDay();
-  const { filteredMenu: menu, order, addToOrder } = useMenu(day);
+  const { filteredMenu: menu, addToOrder } = useMenu(day);
 
   const [showToast, setShowToast] = useState(false);
 
