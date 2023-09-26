@@ -4,9 +4,11 @@ import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
 import { HomeCookContext } from 'src/store';
 import { OrderItem } from '../order/types';
 import { FoodItem } from './FoodItem';
+import { useMenu } from './useMenu';
 
 export const Menu = () => {
-  const { order, setOrder, menu } = useContext(HomeCookContext);
+  const day = new Date().getDay();
+  const { filteredMenu: menu, order, addToOrder } = useMenu(day);
 
   const [showToast, setShowToast] = useState(false);
 
@@ -27,24 +29,14 @@ export const Menu = () => {
     setShowToast(s => !s);
   };
 
-  const addToOrder = (item: OrderItem, servingSize: number) => {
-    const newOrder = [...order];
-    const desiredItem = newOrder.find(orderItem => orderItem.id === item.id);
-
-    if (desiredItem) {
-      desiredItem.quantity = servingSize / item.serving;
-    } else {
-      item.quantity = servingSize / item.serving;
-      newOrder.push(item);
-    }
-
-    setOrder(newOrder);
+  const handleAddItem = (item: OrderItem, servingSize: number) => {
+    addToOrder(item, servingSize);
     setShowToast(true);
   };
 
   const currentMenu = menu.map(item => (
     <Col key={item.id} xs={12} sm={6} md={6} lg={4} xl={3}>
-      <FoodItem key={item.id} item={item} onClick={addToOrder} />
+      <FoodItem key={item.id} item={item} onClick={handleAddItem} />
     </Col>
   ));
 
