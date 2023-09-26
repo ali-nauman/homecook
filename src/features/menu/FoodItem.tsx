@@ -21,7 +21,7 @@ export const FoodItem = ({ item, onClick }: Props) => {
   };
 
   return (
-    <Card className="mt-4" style={{ width: '18rem', backgroundColor: '#333' }}>
+    <Card className="mt-4 text-white" style={{ width: '18rem', backgroundColor: '#333' }}>
       <Card.Img
         variant="top"
         src={import.meta.env.BASE_URL + item.image}
