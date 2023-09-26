@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
-import { MenuItem, OrderItem } from 'src/models';
+
+import { OrderItem } from '../order/types';
+import { MenuItem } from './types';
 
 interface Props {
   item: MenuItem;

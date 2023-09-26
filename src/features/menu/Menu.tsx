@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
-import { OrderItem } from 'src/models';
 
 import { HomeCookContext } from 'src/store';
-import { FoodItem } from './FoodItem/FoodItem';
+import { OrderItem } from '../order/types';
+import { FoodItem } from './FoodItem';
 
 export const Menu = () => {
   const { order, setOrder, menu } = useContext(HomeCookContext);

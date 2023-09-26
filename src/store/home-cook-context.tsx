@@ -1,9 +1,10 @@
 import { createContext, ReactNode, useState } from 'react';
 
 import { useLocalStorage } from 'src/hooks';
-import { MenuItem, OrderItem } from 'src/models';
 
 import foodItems from '../data.json';
+import { MenuItem } from 'src/features/menu/types';
+import { OrderItem } from 'src/features/order/types';
 
 const getMenu = () => {
   return foodItems.filter(item => item.availableOnDay === new Date().getDay());

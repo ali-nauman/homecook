@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { OrderItem } from 'src/models';
 
 import { HomeCookContext } from 'src/store';
+import { OrderItem } from './types';
 
 function getTotalCost(items: OrderItem[]) {
   return items.reduce(
