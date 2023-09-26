@@ -20,7 +20,6 @@ export function useMenu(day: number) {
     }
 
     setOrder(newOrder);
-    // setShowToast(true);
   };
 
   return { filteredMenu, order, addToOrder };
