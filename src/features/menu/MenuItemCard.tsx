@@ -32,17 +32,20 @@ export const MenuItemCard = ({ item, onClick }: Props) => {
         height="286"
       />
       <Card.Body>
-        <Card.Title className="mb-0">
+        <Card.Title className="mb-0" data-testid="title">
           {item.name} - Rs. {item.price}
         </Card.Title>
-        <small className="font-weight-bold d-inline">
+        <small className="font-weight-bold d-inline" data-testid="subtitle">
           (Serves {item.serving})
         </small>
 
-        <div className="mt-1">Order for {servingSize}</div>
+        <div className="mt-1" data-testid="selected-serving">
+          Order for {servingSize}
+        </div>
 
         <div className="d-flex gap-4 align-items-center">
           <Form.Range
+            data-testid="serving-size-control"
             name="servingSize"
             min={item.serving}
             step={item.serving}
