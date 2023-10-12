@@ -12,7 +12,7 @@ export const Menu = () => {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    let timeoutId: number;
+    let timeoutId: ReturnType<typeof setTimeout>;
     if (showToast) {
       timeoutId = setTimeout(() => {
         setShowToast(false);
