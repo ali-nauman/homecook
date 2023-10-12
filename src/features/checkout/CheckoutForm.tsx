@@ -1,30 +1,15 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 
-export const CheckoutForm = () => {
-  const [address, setAddress] = useState({
-    line1: '',
-    line2: '',
-  });
+interface Props {
+  address: { line1: string; line2: string };
+  onFormValueChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (event: FormEvent) => void;
+}
 
-  const handleFormValueChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setAddress(f => ({ ...f, [event.target.name]: event.target.value.trim() }));
-  };
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-
-    if (!address.line1.length) return;
-
-    alert(
-      `Order confirmed! Your order will be shipped to ${address.line1}${
-        address.line2.length ? `, ${address.line2}` : ''
-      }!`
-    );
-  };
-
+export const CheckoutForm = (props: Props) => {
   return (
-    <Form className="d-flex flex-column gap-4 mt-4" onSubmit={handleSubmit}>
+    <Form className="d-flex flex-column gap-4 mt-4" onSubmit={props.onSubmit}>
       <Row>
         <Col md={4} className="d-flex flex-column gap-4">
           <Form.Group controlId="line1">
@@ -32,8 +17,8 @@ export const CheckoutForm = () => {
             <Form.Control
               type="string"
               name="line1"
-              value={address.line1}
-              onChange={handleFormValueChange}
+              value={props.address.line1}
+              onChange={props.onFormValueChange}
             />
           </Form.Group>
 
@@ -42,8 +27,8 @@ export const CheckoutForm = () => {
             <Form.Control
               type="string"
               name="line2"
-              value={address.line2}
-              onChange={handleFormValueChange}
+              value={props.address.line2}
+              onChange={props.onFormValueChange}
             />
           </Form.Group>
         </Col>
