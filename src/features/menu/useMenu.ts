@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { HomeCookContext } from 'src/store';
+import { HomeCookContext } from 'src/store/home-cook-context';
 import { OrderItem } from '../order/types';
 
 export function useMenu(day: number) {

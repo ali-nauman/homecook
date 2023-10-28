@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-import { HomeCookContext } from 'src/store';
+import { HomeCookContext } from 'src/store/home-cook-context';
 
 export const Header = () => {
   const { order } = useContext(HomeCookContext);

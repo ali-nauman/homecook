@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import { HomeCookContext } from 'src/store';
+import { HomeCookContext } from 'src/store/home-cook-context';
 import { OrderItem } from './types';
 
 function getTotalCost(items: OrderItem[]) {

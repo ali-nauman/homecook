@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react';
 
-import { useLocalStorage } from 'src/hooks';
+import { useLocalStorage } from 'src/hooks/useLocalStorage';
 
 import foodItems from '../data.json';
 import { MenuItem } from 'src/features/menu/types';
