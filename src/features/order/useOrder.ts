@@ -9,15 +9,14 @@ export function useOrder() {
 
   const addToOrder = useCallback(
     (item: MenuItem, servingSize: number) => {
-      const newOrder = [...order];
-      const desiredItem = newOrder.find(orderItem => orderItem.id === item.id);
+      const desiredItem = order.find(orderItem => orderItem.id === item.id);
 
       if (desiredItem) {
         setOrder(
-          order.map(i =>
-            i.id === item.id
-              ? { ...i, quantity: servingSize / item.serving }
-              : i
+          order.map(orderItem =>
+            orderItem.id === item.id
+              ? { ...orderItem, quantity: servingSize / item.serving }
+              : orderItem
           )
         );
       } else {
@@ -27,8 +26,6 @@ export function useOrder() {
         };
         setOrder([...order, newItem]);
       }
-
-      setOrder(newOrder);
     },
     [order, setOrder]
   );

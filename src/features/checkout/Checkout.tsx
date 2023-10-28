@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 import { CheckoutForm } from './CheckoutForm';
 
@@ -9,7 +9,10 @@ export const Checkout = () => {
   });
 
   const handleFormValueChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setAddress(f => ({ ...f, [event.target.name]: event.target.value.trim() }));
+    setAddress(currentAddress => ({
+      ...currentAddress,
+      [event.target.name]: event.target.value.trim(),
+    }));
   };
 
   const handleSubmit = (event: FormEvent) => {
