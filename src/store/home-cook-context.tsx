@@ -1,8 +1,7 @@
-import { createContext, ReactNode, useState } from 'react';
-
-import { useLocalStorage } from 'src/hooks/useLocalStorage';
+import { createContext, ReactNode, useCallback, useState } from 'react';
 
 import foodItems from '../data.json';
+import { useLocalStorage } from 'src/hooks/useLocalStorage';
 import { MenuItem } from 'src/features/menu/types';
 import { OrderItem } from 'src/features/order/types';
 
@@ -22,9 +21,10 @@ export const HomeCookProvider = ({ children }: { children: ReactNode }) => {
   const [menu] = useState([...foodItems]);
   const [order, setOrder] = useLocalStorage<OrderItem[]>('order', []);
 
-  const updateOrder = (newOrder: OrderItem[]) => {
-    setOrder(newOrder);
-  };
+  const updateOrder = useCallback(
+    (newOrder: OrderItem[]) => setOrder(newOrder),
+    [setOrder]
+  );
 
   return (
     <HomeCookContext.Provider value={{ order, setOrder: updateOrder, menu }}>
