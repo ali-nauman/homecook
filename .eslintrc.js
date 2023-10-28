@@ -6,17 +6,18 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'prettier',
   ],
-  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
+    project: true,
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
