@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 
 import { MenuItemCard } from './MenuItemCard';
@@ -42,11 +43,12 @@ describe('MenuItemCard', () => {
     expect(selectedServing.textContent).toBe(`Order for 4`);
   });
 
-  test('should call onClick handler when clicked', () => {
+  test('should call onClick handler when clicked', async () => {
+    const user = userEvent.setup();
     const fn = vi.fn();
     render(<MenuItemCard item={item} onClick={fn} />);
 
-    fireEvent.click(screen.getByText('Order'));
+    await user.click(screen.getByText('Order'));
     expect(fn).toHaveBeenCalledOnce();
   });
 });
