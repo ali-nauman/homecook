@@ -1,12 +1,11 @@
 import { ChangeEvent, useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 
-import { OrderItem } from '../order/types';
 import { MenuItem } from './types';
 
 interface Props {
   item: MenuItem;
-  onClick: (item: OrderItem, servingSize: number) => void;
+  onClick: (item: MenuItem, servingSize: number) => void;
 }
 
 export const MenuItemCard = ({ item, onClick }: Props) => {
@@ -56,7 +55,7 @@ export const MenuItemCard = ({ item, onClick }: Props) => {
           <Button
             className="d-block ml-5 px-3"
             variant="primary"
-            onClick={() => onClick(item as OrderItem, servingSize)}
+            onClick={() => onClick(item, servingSize)}
           >
             Order
           </Button>

@@ -12,9 +12,11 @@ interface HomeCookContextType {
   menu: MenuItem[];
 }
 
-export const HomeCookContext = createContext<HomeCookContextType>(
-  {} as HomeCookContextType
-);
+export const HomeCookContext = createContext<HomeCookContextType>({
+  order: [],
+  menu: [],
+  setOrder() {},
+});
 
 export const HomeCookProvider = ({ children }: { children: ReactNode }) => {
   const [menu] = useState([...foodItems]);

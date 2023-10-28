@@ -1,9 +1,9 @@
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
 
-import { OrderItem } from '../order/types';
 import { MenuItemCard } from './MenuItemCard';
 import { useMenu } from './useMenu';
 import { useToast } from 'src/hooks/useToast';
+import { MenuItem } from './types';
 
 export const Menu = () => {
   const day = new Date().getDay();
@@ -15,7 +15,7 @@ export const Menu = () => {
     setShowToast(s => !s);
   };
 
-  const handleAddItem = (item: OrderItem, servingSize: number) => {
+  const handleAddItem = (item: MenuItem, servingSize: number) => {
     addToOrder(item, servingSize);
     setShowToast(true);
   };
