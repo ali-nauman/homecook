@@ -1,28 +1,15 @@
-import { useEffect, useState } from 'react';
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
 
 import { OrderItem } from '../order/types';
 import { MenuItemCard } from './MenuItemCard';
 import { useMenu } from './useMenu';
+import { useToast } from 'src/hooks/useToast';
 
 export const Menu = () => {
   const day = new Date().getDay();
   const { filteredMenu: menu, addToOrder } = useMenu(day);
 
-  const [showToast, setShowToast] = useState(false);
-
-  useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
-    if (showToast) {
-      timeoutId = setTimeout(() => {
-        setShowToast(false);
-      }, 1500);
-    }
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [showToast]);
+  const { showToast, setShowToast } = useToast();
 
   const toggleToast = () => {
     setShowToast(s => !s);
