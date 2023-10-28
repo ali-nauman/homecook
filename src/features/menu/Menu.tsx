@@ -4,10 +4,12 @@ import { MenuItemCard } from './MenuItemCard';
 import { useMenu } from './useMenu';
 import { useToast } from 'src/hooks/useToast';
 import { MenuItem } from './types';
+import { useOrder } from '../order/useOrder';
 
 export const Menu = () => {
   const day = new Date().getDay();
-  const { filteredMenu: menu, addToOrder } = useMenu(day);
+  const { menu } = useMenu(day);
+  const { addToOrder } = useOrder();
 
   const { showToast, setShowToast } = useToast();
 
