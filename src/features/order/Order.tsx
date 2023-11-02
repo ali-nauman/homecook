@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Table } from 'react-bootstrap';
+import { useContext, useState } from 'react';
+import { Button, Modal, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { OrderItem } from '@features/order/types';
@@ -14,12 +14,25 @@ function getTotalCost(items: OrderItem[]) {
 
 export const Order = () => {
   const { order, setOrder } = useContext(HomeCookContext);
+  const [itemToDelete, setItemToDelete] = useState<OrderItem | null>(null);
+
+  const [show, setShow] = useState(false);
 
   const title = <h3>Order</h3>;
 
-  const deleteItem = (id: number) => {
-    const newOrder = order.filter(i => i.id !== id);
+  const handleDelete = (item: OrderItem) => {
+    setShow(true);
+    setItemToDelete(item);
+  };
+
+  const handleDeleteConfirmed = () => {
+    const newOrder = order.filter(i => i.id !== itemToDelete?.id);
     setOrder(newOrder);
+    setItemToDelete(null);
+  };
+
+  const handleClose = () => {
+    setShow(false);
   };
 
   if (order.length === 0) {
@@ -33,23 +46,6 @@ export const Order = () => {
       </div>
     );
   }
-
-  const orderItems = order.map((item, i) => (
-    <tr key={item.id} className="align-middle">
-      <td>{++i}</td>
-      <td>{item.name}</td>
-      <td>Rs. {item.price}</td>
-      <td>
-        {item.quantity} (serves {item.serving * item.quantity})
-      </td>
-      <td>Rs. {item.quantity * item.price}</td>
-      <td>
-        <button className="btn btn-danger" onClick={() => deleteItem(item.id)}>
-          Delete
-        </button>
-      </td>
-    </tr>
-  ));
 
   return (
     <div className="mx-4 mt-4">
@@ -69,7 +65,27 @@ export const Order = () => {
             </tr>
           </thead>
 
-          <tbody>{orderItems}</tbody>
+          <tbody>
+            {order.map((item, i) => (
+              <tr key={item.id} className="align-middle">
+                <td>{++i}</td>
+                <td>{item.name}</td>
+                <td>Rs. {item.price}</td>
+                <td>
+                  {item.quantity} (serves {item.serving * item.quantity})
+                </td>
+                <td>Rs. {item.quantity * item.price}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(item)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
 
           <tfoot>
             <tr>
@@ -90,6 +106,24 @@ export const Order = () => {
           Add More Items
         </Link>
       </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Delete Item</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to delete <em>{itemToDelete?.name}</em> from
+          your order?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="danger" onClick={handleDeleteConfirmed}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
