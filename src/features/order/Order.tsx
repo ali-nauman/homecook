@@ -5,13 +5,6 @@ import { Link } from 'react-router-dom';
 import { OrderItem } from '@features/order/types';
 import { HomeCookContext } from '@store/home-cook-context';
 
-function getTotalCost(items: OrderItem[]) {
-  return items.reduce(
-    (subTotal, item) => subTotal + item.price * item.quantity,
-    0
-  );
-}
-
 export const Order = () => {
   const { order, setOrder } = useContext(HomeCookContext);
   const [itemToDelete, setItemToDelete] = useState<OrderItem | null>(null);
@@ -92,7 +85,13 @@ export const Order = () => {
               <td className="text-end fw-bold" colSpan={5}>
                 Total
               </td>
-              <td className="fw-bold">Rs. {getTotalCost(order)}</td>
+              <td className="fw-bold">
+                Rs.{' '}
+                {order.reduce(
+                  (subTotal, item) => subTotal + item.price * item.quantity,
+                  0
+                )}
+              </td>
             </tr>
           </tfoot>
         </Table>
