@@ -1,12 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { Toast, ToastContainer } from 'react-bootstrap';
 
 import { CheckoutForm } from './CheckoutForm';
+import { useToast } from '@hooks/useToast';
 
 export const Checkout = () => {
   const [address, setAddress] = useState({
     line1: '',
     line2: '',
   });
+
+  const { showToast, setShowToast } = useToast();
 
   const handleFormValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setAddress(currentAddress => ({
@@ -20,11 +24,7 @@ export const Checkout = () => {
 
     if (!address.line1.length) return;
 
-    alert(
-      `Order confirmed! Your order will be shipped to ${address.line1}${
-        address.line2.length ? `, ${address.line2}` : ''
-      }!`
-    );
+    setShowToast(true);
   };
 
   return (
@@ -48,6 +48,22 @@ export const Checkout = () => {
         onFormValueChange={handleFormValueChange}
         onSubmit={handleSubmit}
       />
+
+      <ToastContainer className="p-3" position="middle-center">
+        <Toast
+          style={{ backgroundColor: '#333' }}
+          show={showToast}
+          onClose={() => setShowToast(false)}
+        >
+          <Toast.Header>
+            <strong className="me-auto">HomeCook</strong>
+          </Toast.Header>
+          <Toast.Body>
+            Order confirmed! Your order will be shipped to ${address.line1}$
+            {address.line2.length ? address.line2 : ''}!
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 };
