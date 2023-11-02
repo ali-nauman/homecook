@@ -1,9 +1,10 @@
 import { createContext, ReactNode, useCallback, useState } from 'react';
 
+import { OrderItem } from '@features/order/types';
+import { MenuItem } from '@features/menu/types';
+import { useLocalStorage } from '@hooks/useLocalStorage';
+
 import foodItems from '../data.json';
-import { useLocalStorage } from 'src/hooks/useLocalStorage';
-import { MenuItem } from 'src/features/menu/types';
-import { OrderItem } from 'src/features/order/types';
 
 interface HomeCookContextType {
   order: OrderItem[];

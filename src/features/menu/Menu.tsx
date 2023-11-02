@@ -1,10 +1,10 @@
 import { Col, Row, Toast, ToastContainer } from 'react-bootstrap';
 
-import { MenuItemCard } from './MenuItemCard';
-import { useMenu } from './useMenu';
-import { useToast } from 'src/hooks/useToast';
-import { MenuItem } from './types';
-import { useOrder } from '../order/useOrder';
+import { useToast } from '@hooks/useToast';
+import { useMenu } from '@features/menu/useMenu';
+import { useOrder } from '@features/order/useOrder';
+import { MenuItem } from '@features/menu/types';
+import { MenuItemCard } from '@features/menu/MenuItemCard';
 
 export const Menu = () => {
   const day = new Date().getDay();

@@ -1,3 +1,3 @@
-import { MenuItem } from '../menu/types';
+import { MenuItem } from '@features/menu/types';
 
 export type OrderItem = MenuItem & { quantity: number };

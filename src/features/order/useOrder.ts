@@ -1,8 +1,8 @@
 import { useCallback, useContext } from 'react';
 
-import { HomeCookContext } from '../../store/home-cook-context';
-import { MenuItem } from '../menu/types';
-import { OrderItem } from './types';
+import { HomeCookContext } from '@store/home-cook-context';
+import { MenuItem } from '@features/menu/types';
+import { OrderItem } from '@features/order/types';
 
 export function useOrder() {
   const { order, setOrder } = useContext(HomeCookContext);

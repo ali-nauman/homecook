@@ -18,7 +18,15 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "paths": {
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@store/*": ["./src/store/*"],
+      "@features/checkout/*": ["./src/features/checkout/*"],
+      "@features/menu/*": ["./src/features/menu/*"],
+      "@features/order/*": ["./src/features/order/*"]
+    }
   },
   "include": ["src"]
 }
